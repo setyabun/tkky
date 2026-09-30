@@ -3,91 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#9f1717">
   <title>Doa Mohon Rahmat Natal 2026</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Segoe UI", Arial, sans-serif;
       background: #fdfaf6;
       color: #333;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
+      line-height: 1.75;
+      font-size: 18px;
     }
+
+    /* HEADER dibuat lebih ramping */
     header {
+      position: relative;
       text-align: center;
-      padding: 20px;
-      background: #b71c1c;
+      padding: 10px 16px 14px;
+      background: linear-gradient(180deg, #b71c1c 0%, #a71919 100%);
       color: #fff;
+      overflow: hidden;
     }
+
+    /* Salib tidak lagi memenuhi lebar layar */
     header img {
-      width: 80px;
-      margin-bottom: 10px;
+      display: block;
+      width: auto;
+      height: 75px;
+      max-width: 85%;
+      object-fit: contain;
+      margin: 0 auto 5px;
+      opacity: 0.88;
     }
+
     header h1 {
       margin: 0;
-      font-size: 1.4em;
+      font-size: clamp(1.35rem, 5vw, 1.8rem);
+      line-height: 1.25;
+      letter-spacing: 0.5px;
     }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+      line-height: 1.4;
+    }
+
     main {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 22px 18px 10px;
     }
+
+    /*
+      Bagian doa:
+      Theresia dijadikan soft background.
+      Gambar berada di belakang teks dan diberi opacity rendah.
+    */
+    .doa-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      padding: 28px 22px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 3px 15px rgba(80, 40, 20, 0.08);
+    }
+
+    .doa-container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.70),
+          rgba(255, 255, 255, 0.78)
+        ),
+        url("theresia.png");
+      background-size: cover;
+      background-position: center 18%;
+      background-repeat: no-repeat;
+      opacity: 0.55;
+      filter: saturate(0.75) contrast(0.9);
+      z-index: 0;
+    }
+
+    .doa-container > * {
+      position: relative;
+      z-index: 1;
+    }
+
     .doa-title {
       text-align: center;
       font-weight: bold;
-      margin-bottom: 20px;
-      font-size: 1.2em;
-      color: #b71c1c;
+      margin: 0 0 20px;
+      font-size: clamp(1.25rem, 5vw, 1.55rem);
+      color: #9f1717;
+      line-height: 1.3;
     }
+
     .doa-text {
       white-space: pre-line;
-      text-align: justify;
+      text-align: left;
+      font-size: clamp(1.05rem, 4.2vw, 1.18rem);
+      line-height: 1.85;
     }
-    .illustration {
+
+    .doa-text p {
+      margin: 0 0 1.25em;
+    }
+
+    .amin {
+      display: block;
       text-align: center;
-      margin-top: 30px;
+      font-weight: bold;
+      font-size: 1.15em;
+      color: #9f1717;
+      margin-top: 8px;
     }
-    .illustration img {
-      max-width: 220px;
-      border-radius: 8px;
+
+    /* Gambar Theresia tidak lagi ditampilkan sebagai gambar terpisah */
+    .illustration {
+      display: none;
     }
+
     footer {
       text-align: center;
-      font-size: 0.8em;
+      font-size: 0.9rem;
       color: #777;
-      margin: 30px 0;
+      margin: 22px 0 28px;
+      padding: 0 15px;
+    }
+
+    /* Penyesuaian khusus layar kecil */
+    @media (max-width: 480px) {
+      body {
+        font-size: 17px;
+      }
+
+      header {
+        padding: 7px 12px 12px;
+      }
+
+      header img {
+        height: 58px;
+        max-width: 70%;
+        margin-bottom: 4px;
+      }
+
+      main {
+        padding: 15px 10px 5px;
+      }
+
+      .doa-container {
+        padding: 23px 17px;
+        border-radius: 15px;
+      }
+
+      .doa-text {
+        text-align: left;
+        line-height: 1.8;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <header>
-    <img src="salib.png" alt="Salib Natal" style="width:100%; max-width:600px; height:auto; margin-bottom:10px;">
+    <img src="salib.png" alt="Salib Natal">
     <h1>DOA MOHON RAHMAT</h1>
     <p>BAGI TUGAS KEPANITIAAN NATAL 2026</p>
   </header>
+
   <main>
-    <div class="doa-text">
-Allah Bapa yang Maha Kasih, kami bersyukur karena Engkau telah mempercayakan kami umat Wilayah St. Theresia dari Kanak-kanak Yesus
-dalam mengemban tugas sebagai Panitia Natal Tahun 2026 ini. 
-Kami mohon, curahkanlah Roh Kudus-Mu agar setiap langkah dan karya kami
-senantiasa berada dalam bimbingan-Mu.
+    <section class="doa-container" aria-label="Doa Mohon Rahmat">
+      <div class="doa-title">DOA MOHON RAHMAT</div>
 
-Berkatilah kami agar dapat melayani dengan penuh tanggung jawab, sukacita
-dan semangat persatuan. Anugerahkanlah kami hikmat, kebijaksanaan serta
-kerendahan hati sehingga setiap tantangan, hambatan maupun perbedaan
-pendapat dapat kami hadapi dengan hati yang tenang dan penuh kasih dalam
-semangat persaudaraan.
+      <div class="doa-text">
+Allah Bapa yang Maha Kasih, kami bersyukur karena Engkau telah mempercayakan kami umat Wilayah St. Theresia dari Kanak-kanak Yesus dalam mengemban tugas sebagai Panitia Natal Tahun 2026 ini.
 
-Ya Bapa, kami serahkan seluruh doa, usaha dan pelayanan kami demi kemuliaan nama-Mu. Semoga semakin banyak umat mengalami sukacita Natal
-dan bertumbuh dalam iman serta pertobatan sejati.
-Amin.
-    </div>
-    <div class="illustration">
-      <img src="theresia.png" alt="St. Theresia dari Kanak-kanak Yesus">
-    </div>
+Kami mohon, curahkanlah Roh Kudus-Mu agar setiap langkah dan karya kami senantiasa berada dalam bimbingan-Mu.
+
+Berkatilah kami agar dapat melayani dengan penuh tanggung jawab, sukacita dan semangat persatuan. Anugerahkanlah kami hikmat, kebijaksanaan serta kerendahan hati sehingga setiap tantangan, hambatan maupun perbedaan pendapat dapat kami hadapi dengan hati yang tenang dan penuh kasih dalam semangat persaudaraan.
+
+Ya Bapa, kami serahkan seluruh doa, usaha dan pelayanan kami demi kemuliaan nama-Mu. Semoga semakin banyak umat mengalami sukacita Natal dan bertumbuh dalam iman serta pertobatan sejati.
+
+<span class="amin">Amin.</span>
+      </div>
+    </section>
   </main>
+
   <footer>
     © Panitia Natal 2026 - Wilayah St. Theresia
   </footer>
+
 </body>
 </html>
