@@ -22,174 +22,335 @@
       margin: 0;
       padding: 0;
       line-height: 1.75;
-      font-size: 18px;
+      font-size: 17px;
     }
 
-    /* HEADER dibuat lebih ramping */
+    /* ========== HEADER ========== */
     header {
       position: relative;
       text-align: center;
-      padding: 10px 16px 14px;
+      padding: 12px 16px 16px;
       background: linear-gradient(180deg, #b71c1c 0%, #a71919 100%);
       color: #fff;
       overflow: hidden;
     }
 
-    /* Salib tidak lagi memenuhi lebar layar */
-    header img {
+    .salib {
       display: block;
       width: auto;
-      height: 75px;
-      max-width: 85%;
+      height: 52px;
+      max-width: 90%;
       object-fit: contain;
-      margin: 0 auto 5px;
-      opacity: 0.88;
+      margin: 0 auto 8px;
+      opacity: 0.92;
     }
 
     header h1 {
       margin: 0;
-      font-size: clamp(1.35rem, 5vw, 1.8rem);
+      font-size: clamp(1.25rem, 5vw, 1.7rem);
       line-height: 1.25;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
 
     header p {
-      margin: 5px 0 0;
-      font-size: clamp(0.95rem, 3.5vw, 1.1rem);
-      line-height: 1.4;
+      margin: 6px 0 0;
+      font-size: clamp(0.9rem, 3.4vw, 1.05rem);
+      line-height: 1.35;
+      opacity: 0.95;
     }
 
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 22px 18px 10px;
-    }
+
+    /* ========== THERESIA FIXED ========== */
 
     /*
-      Bagian doa:
-      Theresia dijadikan soft background.
-      Gambar berada di belakang teks dan diberi opacity rendah.
+      Theresia tetap menempel di kanan layar
+      ketika halaman di-scroll.
     */
+    .theresia-sticky {
+      position: fixed;
+      top: 110px;
+      right: 12px;
+      width: 78px;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .theresia-sticky img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.18));
+      opacity: 0.92;
+    }
+
+
+    /* ========== MAIN CONTENT ========== */
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px 16px 12px;
+    }
+
     .doa-container {
       position: relative;
-      overflow: hidden;
-      border-radius: 18px;
-      padding: 28px 22px;
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: 0 3px 15px rgba(80, 40, 20, 0.08);
-    }
-
-    .doa-container::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(
-          rgba(255, 255, 255, 0.70),
-          rgba(255, 255, 255, 0.78)
-        ),
-        url("theresia.png");
-      background-size: cover;
-      background-position: center 18%;
-      background-repeat: no-repeat;
-      opacity: 0.55;
-      filter: saturate(0.75) contrast(0.9);
-      z-index: 0;
-    }
-
-    .doa-container > * {
-      position: relative;
-      z-index: 1;
+      border-radius: 16px;
+      padding: 24px 20px 28px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 4px 18px rgba(80, 40, 20, 0.09);
     }
 
     .doa-title {
       text-align: center;
-      font-weight: bold;
-      margin: 0 0 20px;
-      font-size: clamp(1rem, 4vw, 1.4rem);
+      font-weight: 700;
+      margin: 0 0 18px;
+      font-size: clamp(0.95rem, 3.8vw, 1.25rem);
       color: #9f1717;
-      line-height: 1.3;
+      line-height: 1.35;
+    }
+
+
+    /* ==================================================
+       TEXT + THERESIA LAYOUT
+       ================================================== */
+
+    /*
+      The text area is split into two parts:
+
+      1. .text-with-theresia
+         Text flows beside the picture.
+
+      2. .text-full-width
+         After the picture, text returns to full width.
+    */
+
+    .text-with-theresia {
+      overflow: hidden;
+    }
+
+    /*
+      Reserve the right side only for the portion of text
+      that is next to Theresia.
+    */
+    .theresia-space {
+      float: right;
+
+      /*
+        Width of image + gap.
+        This MUST correspond approximately to
+        the Theresia image width.
+      */
+      width: 98px;
+
+      /*
+        Height of the area occupied by the image.
+        The text after this height will naturally
+        continue at full width.
+      */
+      height: 145px;
+
+      margin-left: 14px;
     }
 
     .doa-text {
       white-space: pre-line;
       text-align: left;
-      font-size: clamp(1.05rem, 4.2vw, 1.18rem);
+      font-size: clamp(1rem, 4vw, 1.12rem);
       line-height: 1.85;
     }
 
     .doa-text p {
-      margin: 0 0 1.25em;
+      margin: 0 0 1.2em;
     }
 
     .amin {
       display: block;
       text-align: center;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 1.15em;
       color: #9f1717;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
-    /* Gambar Theresia tidak lagi ditampilkan sebagai gambar terpisah */
-    .illustration {
-      display: none;
-    }
+
+    /* ========== FOOTER ========== */
 
     footer {
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #777;
-      margin: 22px 0 28px;
-      padding: 0 15px;
+      margin: 24px 0 32px;
+      padding: 0 16px;
     }
 
-    /* Penyesuaian khusus layar kecil */
+
+    /* ==================================================
+       MOBILE
+       ================================================== */
+
     @media (max-width: 480px) {
+
       body {
-        font-size: 17px;
+        font-size: 16px;
       }
 
       header {
-        padding: 7px 12px 12px;
+        padding: 10px 12px 14px;
       }
 
-      header img {
-        height: 58px;
-        max-width: 70%;
-        margin-bottom: 4px;
+      .salib {
+        height: 44px;
+      }
+
+      .theresia-sticky {
+        top: 100px;
+        right: 8px;
+        width: 64px;
       }
 
       main {
-        padding: 15px 10px 5px;
+        padding: 14px 12px 8px;
       }
 
       .doa-container {
-        padding: 23px 17px;
-        border-radius: 15px;
+        padding: 20px 16px 24px;
+        border-radius: 14px;
+      }
+
+      /*
+        Smaller reserved area for the smaller
+        Theresia image on mobile.
+      */
+      .theresia-space {
+        width: 78px;
+        height: 118px;
+        margin-left: 10px;
       }
 
       .doa-text {
-        text-align: left;
+        font-size: clamp(1rem, 4vw, 1.08rem);
         line-height: 1.8;
       }
     }
+
+
+    /* ==================================================
+       VERY SMALL PHONES
+       ================================================== */
+
+    @media (max-width: 360px) {
+
+      .theresia-sticky {
+        width: 54px;
+        right: 6px;
+      }
+
+      .theresia-space {
+        width: 66px;
+        height: 100px;
+        margin-left: 8px;
+      }
+
+      .doa-container {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+
+
+    /* ==================================================
+       TABLET / DESKTOP
+       ================================================== */
+
+    @media (min-width: 600px) {
+
+      .theresia-sticky {
+        width: 90px;
+        top: 120px;
+        right: 20px;
+      }
+
+      .theresia-space {
+        width: 110px;
+        height: 165px;
+        margin-left: 20px;
+      }
+
+      .salib {
+        height: 58px;
+      }
+    }
+
   </style>
 </head>
 
+
 <body>
 
+
+  <!-- ==================================================
+       THERESIA
+       Tetap fixed di kanan saat scrolling
+       ================================================== -->
+
+  <div class="theresia-sticky">
+    <img
+      src="Thersia_small.png"
+      alt="St. Theresia dari Kanak-kanak Yesus"
+    >
+  </div>
+
+
+  <!-- ==================================================
+       HEADER
+       ================================================== -->
+
   <header>
-    <img src="salib.png" alt="Salib Natal">
+
+    <img
+      class="salib"
+      src="salib_small.png"
+      alt="Salib Natal"
+    >
+
     <h1>DOA MOHON RAHMAT</h1>
-    <p>BAGI TUGAS KEPANITIAAN NATAL 2026</p>
+
+    <p>
+      BAGI TUGAS KEPANITIAAN NATAL 2026
+    </p>
+
   </header>
 
-  <main>
-    <section class="doa-container" aria-label="Doa Mohon Rahmat">
-      <div class="doa-title">Dalam Nama Bapa dan Putera dan Roh Kudus, Amin</div>
 
-      <div class="doa-text">
+  <!-- ==================================================
+       MAIN CONTENT
+       ================================================== -->
+
+  <main>
+
+    <section
+      class="doa-container"
+      aria-label="Doa Mohon Rahmat"
+    >
+
+      <div class="doa-title">
+        Dalam Nama Bapa dan Putera dan Roh Kudus, Amin
+      </div>
+
+
+      <!--
+        Invisible layout spacer.
+
+        It occupies exactly the area where
+        Theresia appears, but the actual image
+        remains fixed on the screen.
+      -->
+      <div class="text-with-theresia">
+
+        <div class="theresia-space"></div>
+
+        <div class="doa-text">
+
 Allah Bapa yang Maha Kasih, kami bersyukur karena Engkau telah mempercayakan kami umat Wilayah St. Theresia dari Kanak-kanak Yesus dalam mengemban tugas sebagai Panitia Natal Tahun 2026 ini.
 
 Kami mohon, curahkanlah Roh Kudus-Mu agar setiap langkah dan karya kami senantiasa berada dalam bimbingan-Mu.
@@ -199,13 +360,24 @@ Berkatilah kami agar dapat melayani dengan penuh tanggung jawab, sukacita dan se
 Ya Bapa, kami serahkan seluruh doa, usaha dan pelayanan kami demi kemuliaan nama-Mu. Semoga semakin banyak umat mengalami sukacita Natal dan bertumbuh dalam iman serta pertobatan sejati.
 
 <span class="amin">Amin.</span>
+
+        </div>
+
       </div>
+
     </section>
+
   </main>
+
+
+  <!-- ==================================================
+       FOOTER
+       ================================================== -->
 
   <footer>
     © Panitia Natal 2026 - Wilayah St. Theresia
   </footer>
+
 
 </body>
 </html>
